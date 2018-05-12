@@ -18,7 +18,8 @@ public class ConfirmBCreationButtonController implements ActionListener {
     private JTextField workersNumber;
     private JFrame frame;
 
-    public ConfirmBCreationButtonController(Request request, JTextField brigadierName, JTextField workersNumber, JFrame frame) {
+    public ConfirmBCreationButtonController(Request request, JTextField brigadierName,
+                                            JTextField workersNumber, JFrame frame) {
         this.request = request;
         this.brigadierName = brigadierName;
         this.workersNumber = workersNumber;

@@ -32,7 +32,7 @@ public class BrigadeCreation extends JFrame {
         workerNumberLabel = new JLabel();
         workerNumberTextField = new JTextField();
         confirmButton = new JButton();
-        request = request;
+        this.request = request;
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Додаток ЖЕК ~ Формування бригади");
