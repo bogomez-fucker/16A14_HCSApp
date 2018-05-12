@@ -1,5 +1,6 @@
 package ua.hcs.test;
 
+import ua.hcs.model.User;
 import ua.hcs.view.Authorization;
 import ua.hcs.view.Tenant;
 
@@ -9,7 +10,7 @@ import ua.hcs.view.Tenant;
 public class TenantTest {
 
     public static void main(String[] args) {
-        Tenant tenant = new Tenant();
+        Tenant tenant = new Tenant(new User(666, "admin", "admin", "dispatcher"));
 
         tenant.setVisible(true);
     }

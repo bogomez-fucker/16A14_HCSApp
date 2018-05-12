@@ -33,7 +33,7 @@ public class BrigadeCreation extends JFrame {
         confirmButton = new JButton();
         request = request;
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Додаток ЖЕК ~ Формування бригади");
 
         headerLabel.setFont(new Font("Tahoma", Font.BOLD, 15));

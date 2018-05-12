@@ -1,5 +1,8 @@
 package ua.hcs.view;
 
+import ua.hcs.controller.SendRequestButtonController;
+import ua.hcs.model.User;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,9 +18,10 @@ public class Tenant extends JFrame {
     private JTextField scaleOfWorkField;
     private JLabel prefTimeOfWorkLabel;
     private JTextField prefTimeOfWorkField;
-    private JButton loginButton;
+    private JButton sendRequestButton;
+    private User tenant;
 
-    public Tenant() {
+    public Tenant(User tenant) {
         headerLabel = new JLabel();
         kindOfWorkLabel = new JLabel();
         kindOfWorkField = new JTextField();
@@ -25,7 +29,8 @@ public class Tenant extends JFrame {
         scaleOfWorkField = new JTextField();
         prefTimeOfWorkLabel = new JLabel();
         prefTimeOfWorkField = new JTextField();
-        loginButton = new JButton();
+        sendRequestButton = new JButton();
+        this.tenant = tenant;
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Додаток ЖЕК ~ Заява");
@@ -36,9 +41,11 @@ public class Tenant extends JFrame {
 
         kindOfWorkLabel.setText("Введіть рід робіт:");
         scaleOfWorkLabel.setText("Введіть масштаб робіт:");
-        prefTimeOfWorkLabel.setText("Введіть бажаний час виконання:");
+        prefTimeOfWorkLabel.setText("Введіть бажаний час в годинах:");
 
-        loginButton.setText("Відправити заяву");
+        sendRequestButton.setText("Відправити заяву");
+        sendRequestButton.addActionListener(new SendRequestButtonController(kindOfWorkField,
+                scaleOfWorkField, prefTimeOfWorkField, tenant, this));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,7 +62,7 @@ public class Tenant extends JFrame {
                                         .addComponent(scaleOfWorkField)
                                         .addComponent(prefTimeOfWorkLabel)
                                         .addComponent(prefTimeOfWorkField)
-                                        .addComponent(loginButton))
+                                        .addComponent(sendRequestButton))
                                 .addContainerGap()));
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -74,7 +81,7 @@ public class Tenant extends JFrame {
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(prefTimeOfWorkField)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(loginButton)
+                        .addComponent(sendRequestButton)
                         .addContainerGap()));
 
         pack();

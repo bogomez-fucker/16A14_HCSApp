@@ -17,4 +17,6 @@ public class Const {
             "Id", "Id запиту", "Ім'я орендара", "Id бригади", "Ім'я бригадира", "Кі-сть робочих"
     };
     public static final int UPDATE_DELAY = 3000;
+    public static final String ROLE_TENANT = "tenant";
+    public static final String ROLE_DISPATCHER = "dispatcher";
 }

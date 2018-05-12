@@ -1,5 +1,6 @@
 package ua.hcs.view;
 
+import ua.hcs.controller.AcceptRequestButtonController;
 import ua.hcs.model.*;
 import ua.hcs.util.Const;
 
@@ -53,6 +54,7 @@ public class Dispatcher extends JFrame {
         requestsTableScrollPane.setViewportView(requestsTable);
 
         acceptRequestButton.setText("Прийняти заяву");
+        acceptRequestButton.addActionListener(new AcceptRequestButtonController(requestsTable, this));
 
         workPlanTable.setModel(new WorkPlanTableModel());
         workPlanTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
