@@ -32,9 +32,9 @@ public class ComparableTest {
 
         testArray(brigadeArray);
 
-        Request r1 = new Request(123, u1.getId(), "Hard work", "Little room", 1.5);
-        Request r2 = new Request(1, u1.getId(), "Eqasy work", "Big room", 2.5);
-        Request r3 = new Request(12, u1.getId(), "Hand work", "Little big room", 1.0);
+        Request r1 = new Request(123, u1.getId(), "Hard work", "Little room", 1.5, false);
+        Request r2 = new Request(1, u1.getId(), "Eqasy work", "Big room", 2.5, false);
+        Request r3 = new Request(12, u1.getId(), "Hand work", "Little big room", 1.0, false);
         List<Request> requestArray = Arrays.asList(r1, r2, r3);
 
         testArray(requestArray);

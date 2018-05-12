@@ -13,7 +13,7 @@ public class CloneableTest {
     public static void main(String args[]) {
         User u1 = new User(666, "Petro Petrovych", "qwer", "tenant");
         Brigade b1 = new Brigade(1, "Ivan Petrovych", 10);
-        Request r1 = new Request(11, u1.getId(), "Hard work", "Little room", 1.5);
+        Request r1 = new Request(11, u1.getId(), "Hard work", "Little room", 1.5, false);
         WorkPlanRecord wpr1 = new WorkPlanRecord(111, r1.getId(), b1.getId());
 
         try {

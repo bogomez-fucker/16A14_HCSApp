@@ -13,6 +13,9 @@ import java.awt.event.WindowEvent;
 
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 
+/**
+ * Обробляє натиснення на кнопку ввійти.
+ */
 public class LoginButtonController implements ActionListener {
 
     private JTextField nameField;

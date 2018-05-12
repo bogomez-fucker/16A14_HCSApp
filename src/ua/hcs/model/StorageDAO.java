@@ -134,7 +134,7 @@ public class StorageDAO {
      */
     public List<Request> readRequests() {
         List<String[]> splittedFile = readFileSplittedByTab(Const.REQUESTS_FILEPATH,
-                5, requestsLock);
+                6, requestsLock);
         List<Request> request = new ArrayList<>();
 
         for (String[] line : splittedFile)
@@ -163,7 +163,8 @@ public class StorageDAO {
                         r.getId_tenant() + "\t" +
                         r.getWorkType() + "\t" +
                         r.getWorkScale() + "\t" +
-                        r.getWorkPrefferedTime());
+                        r.getWorkPrefferedTime() + "\t" +
+                        r.isAccepted());
             }
         } catch (IOException e) {
             e.printStackTrace();

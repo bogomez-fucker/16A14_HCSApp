@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Фрейм диспетчера.
@@ -103,7 +104,10 @@ public class Dispatcher extends JFrame {
 
         // Запланувати оновлення таблиць
         Timer requestsTableTimer = new Timer(0, (ActionEvent e) -> {
-            List<Request> requests = StorageDAO.getInstance().readRequests();
+            List<Request> requests = StorageDAO.getInstance().readRequests()
+                    .stream()
+                    .filter(x -> !x.isAccepted())
+                    .collect(Collectors.toList());
 
             if (!requests.equals(lastRequests)) {
                 lastRequests = requests;

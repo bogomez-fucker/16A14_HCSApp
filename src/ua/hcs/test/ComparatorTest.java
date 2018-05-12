@@ -14,6 +14,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Тест моделей на підтримку порівняння за допомогою об'єктів Comparator.
+ */
 public class ComparatorTest {
     public static void main(String[] args) {
         System.out.println("\nТест масивів моделей на підтримку порівняння" +
@@ -37,9 +40,9 @@ public class ComparatorTest {
         System.out.println("Порівняння за кількістю людей в бригаді");
         testArray(brigadeArray, brigadeWorkersNumComparator);
 
-        Request r1 = new Request(123, u1.getId(), "Hard work", "Little room", 1.5);
-        Request r2 = new Request(1, u1.getId(), "Eqasy work", "Big room", 2.5);
-        Request r3 = new Request(12, u1.getId(), "Hand work", "Little big room", 1.0);
+        Request r1 = new Request(123, u1.getId(), "Hard work", "Little room", 1.5, false);
+        Request r2 = new Request(1, u1.getId(), "Eqasy work", "Big room", 2.5, false);
+        Request r3 = new Request(12, u1.getId(), "Hand work", "Little big room", 1.0, false);
         List<Request> requestArray = Arrays.asList(r1, r2, r3);
         RequestPrefTimeComparator requestPrefTimeComparator = new RequestPrefTimeComparator();
 

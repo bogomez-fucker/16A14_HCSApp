@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Обробляє натиснення на кнопку видалення запису з плану робіт.
+ */
 public class DeleteWPRecordButtonController implements ActionListener {
 
     private JTable workPlanTable;

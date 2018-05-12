@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
+/**
+ * Обробляє натиснення на кнопку відправлення запиту.
+ */
 public class SendRequestButtonController implements ActionListener {
 
     private JTextField kindOfWorkField;
@@ -47,7 +50,7 @@ public class SendRequestButtonController implements ActionListener {
             }
         }
 
-        Request request = new Request(Util.generateId(), tenant.getId(), kindOfWork, scaleOfWork, prefTimeOfWork);
+        Request request = new Request(Util.generateId(), tenant.getId(), kindOfWork, scaleOfWork, prefTimeOfWork, false);
 
         StorageDAO.getInstance()
                 .writeRequests(Arrays.asList(request), true);

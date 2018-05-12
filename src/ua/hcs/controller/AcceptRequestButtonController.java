@@ -10,6 +10,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Обробляє натиснення на кнопку прийняття запиту.
+ */
 public class AcceptRequestButtonController implements ActionListener {
 
     private JTable requestsTable;
@@ -29,12 +32,14 @@ public class AcceptRequestButtonController implements ActionListener {
             return;
         }
 
+        // Отримати дані з таблиці
         DefaultTableModel requestsTableModel = (DefaultTableModel) requestsTable.getModel();
         Object[] record = new Object[5];
 
         for (int i = 0; i < 5; i++)
             record[i] = requestsTableModel.getValueAt(selectedRowIndex, i);
 
+        // Знайти користувача за ім'ям
         String username = String.valueOf(record[1]);
         User tenant = StorageDAO.getInstance().readUsers()
                 .stream()
@@ -48,14 +53,18 @@ public class AcceptRequestButtonController implements ActionListener {
             return;
         }
 
+        // Позначити запит, як прийнятий
         Request request = new Request(
                 Long.valueOf(String.valueOf(record[0])),
                 tenant.getId(),
                 String.valueOf(record[2]),
                 String.valueOf(record[3]),
-                Double.valueOf(String.valueOf(record[4])));
+                Double.valueOf(String.valueOf(record[4])),
+                true);
 
+        // Показати фрейм формування бригади під запит
         BrigadeCreation brigadeCreation = new BrigadeCreation(request);
+
         brigadeCreation.setVisible(true);
     }
 }

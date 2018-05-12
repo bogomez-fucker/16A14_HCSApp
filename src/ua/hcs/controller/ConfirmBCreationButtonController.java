@@ -10,7 +10,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
+/**
+ * Обробляє натиснення на кнопку формування бригади на запит.
+ */
 public class ConfirmBCreationButtonController implements ActionListener {
 
     private Request request;
@@ -28,6 +33,18 @@ public class ConfirmBCreationButtonController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Сперше, позначимо запит як прийнятий і запишемо зміни
+        List<Request> filteredRequests = StorageDAO.getInstance()
+                .readRequests()
+                .stream()
+                .filter(x -> x.getId() != request.getId())
+                .collect(Collectors.toList());
+
+        filteredRequests.add(request); // додати змінений
+        // Записати зміни
+        StorageDAO.getInstance().writeRequests(filteredRequests, false);
+
+        // Сформувати бригаду і занесена до робочого плану
         String enteredBrigadierName = brigadierName.getText();
         String enteredWorkersNumberStr = workersNumber.getText();
         int enteredWorkersNumber = 0;

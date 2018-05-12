@@ -15,13 +15,16 @@ public class Request implements Serializable, Cloneable, Comparable<Request> {
     private String workType;
     private String workScale;
     private double workPrefferedTime;
+    private boolean accepted;
 
-    public Request(long id, long id_tenant, String workType, String workScale, double workPrefferedTime) {
+    public Request(long id, long id_tenant, String workType, String workScale,
+                   double workPrefferedTime, boolean accepted) {
         this.id = id;
         this.id_tenant = id_tenant;
         this.workType = workType;
         this.workScale = workScale;
         this.workPrefferedTime = workPrefferedTime;
+        this.accepted = accepted;
     }
 
     public Request(String[] fields) {
@@ -30,6 +33,7 @@ public class Request implements Serializable, Cloneable, Comparable<Request> {
         this.workType = fields[2];
         this.workScale = fields[3];
         this.workPrefferedTime = Double.valueOf(fields[4]);
+        this.accepted = Boolean.valueOf(fields[5]);
     }
 
     public long getId() {
@@ -52,6 +56,10 @@ public class Request implements Serializable, Cloneable, Comparable<Request> {
         return workPrefferedTime;
     }
 
+    public boolean isAccepted() {
+        return accepted;
+    }
+
     @Override
     public Request clone() throws CloneNotSupportedException {
         return (Request) super.clone();
@@ -70,6 +78,7 @@ public class Request implements Serializable, Cloneable, Comparable<Request> {
         return id == request.id &&
                 id_tenant == request.id_tenant &&
                 Double.compare(request.workPrefferedTime, workPrefferedTime) == 0 &&
+                accepted == request.accepted &&
                 Objects.equals(workType, request.workType) &&
                 Objects.equals(workScale, request.workScale);
     }
@@ -77,7 +86,7 @@ public class Request implements Serializable, Cloneable, Comparable<Request> {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, id_tenant, workType, workScale, workPrefferedTime);
+        return Objects.hash(id, id_tenant, workType, workScale, workPrefferedTime, accepted);
     }
 
     @Override
@@ -88,6 +97,7 @@ public class Request implements Serializable, Cloneable, Comparable<Request> {
                 ", workType='" + workType + '\'' +
                 ", workScale='" + workScale + '\'' +
                 ", workPrefferedTime=" + workPrefferedTime +
+                ", accepted=" + accepted +
                 '}';
     }
 }
