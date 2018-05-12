@@ -1,6 +1,7 @@
 package ua.hcs.view;
 
 import ua.hcs.controller.AcceptRequestButtonController;
+import ua.hcs.controller.DeleteWPRecordButtonController;
 import ua.hcs.model.*;
 import ua.hcs.util.Const;
 
@@ -67,6 +68,7 @@ public class Dispatcher extends JFrame {
         workPlanTableScrollPane.setViewportView(workPlanTable);
 
         deleteWorkPlanRecordButton.setText("Видалити з плану робіт");
+        deleteWorkPlanRecordButton.addActionListener(new DeleteWPRecordButtonController(workPlanTable, this));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -5,7 +5,6 @@ import ua.hcs.util.Const;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -31,24 +30,6 @@ public class StorageDAO {
         requestsLock = new ReentrantReadWriteLock();
         usersLock = new ReentrantReadWriteLock();
         workPlanLock = new ReentrantReadWriteLock();
-    }
-
-    /**
-     * Затирає файл
-     * @param filePath шлях до файлу
-     * @param lock лок на окремий файл
-     */
-    private void wipeFile(String filePath, ReadWriteLock lock) {
-        PrintWriter printWriter = null;
-
-        try {
-            lock.writeLock().lock();
-            Files.newBufferedWriter(Paths.get(filePath), StandardOpenOption.TRUNCATE_EXISTING).close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            lock.writeLock().unlock();
-        }
     }
 
     /**

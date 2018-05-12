@@ -1,5 +1,6 @@
 package ua.hcs.view;
 
+import ua.hcs.controller.ConfirmBCreationButtonController;
 import ua.hcs.model.Request;
 
 import javax.swing.*;
@@ -48,6 +49,8 @@ public class BrigadeCreation extends JFrame {
         workerNumberLabel.setText("Введіть необхідну кількість працівників:");
 
         confirmButton.setText("Запланувати роботу");
+        confirmButton.addActionListener(new ConfirmBCreationButtonController(request,
+                brigadierNameTextField, workerNumberTextField, this));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

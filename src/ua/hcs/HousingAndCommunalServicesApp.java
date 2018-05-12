@@ -1,7 +1,11 @@
 package ua.hcs;
 
-public class HousingAndCommunalServicesApp {
+import ua.hcs.view.Authorization;
+
+public class HousingAndCommunalServicesApp extends Authorization {
     public static void main(String[] args) {
-        System.out.println("temp");
+        Authorization authorization = new Authorization();
+
+        authorization.setVisible(true);
     }
 }
