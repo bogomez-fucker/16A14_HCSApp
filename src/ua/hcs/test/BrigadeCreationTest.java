@@ -11,7 +11,7 @@ public class BrigadeCreationTest {
     public static void main(String[] args) {
         BrigadeCreation brigadeCreation = new BrigadeCreation(
                 new Request(2001, 3001, "Спил сухих дерев",
-                        "Ділянка 2 сотки", 6.5, false));
+                        "Ділянка 2 сотки", 6.5, false), null);
 
         brigadeCreation.setVisible(true);
     }

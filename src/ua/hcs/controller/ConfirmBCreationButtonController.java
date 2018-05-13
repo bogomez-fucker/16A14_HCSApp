@@ -33,17 +33,6 @@ public class ConfirmBCreationButtonController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Сперше, позначимо запит як прийнятий і запишемо зміни
-        List<Request> filteredRequests = StorageDAO.getInstance()
-                .readRequests()
-                .stream()
-                .filter(x -> x.getId() != request.getId())
-                .collect(Collectors.toList());
-
-        filteredRequests.add(request); // додати змінений
-        // Записати зміни
-        StorageDAO.getInstance().writeRequests(filteredRequests, false);
-
         // Сформувати бригаду і занесена до робочого плану
         String enteredBrigadierName = brigadierName.getText();
         String enteredWorkersNumberStr = workersNumber.getText();
@@ -61,6 +50,17 @@ public class ConfirmBCreationButtonController implements ActionListener {
                 return;
             }
         }
+
+        // Сперше, позначимо запит як прийнятий і запишемо зміни
+        List<Request> filteredRequests = StorageDAO.getInstance()
+                .readRequests()
+                .stream()
+                .filter(x -> x.getId() != request.getId())
+                .collect(Collectors.toList());
+
+        filteredRequests.add(request); // додати змінений
+        // Записати зміни
+        StorageDAO.getInstance().writeRequests(filteredRequests, false);
 
         Brigade brigade = new Brigade(Util.generateId(), enteredBrigadierName, enteredWorkersNumber);
 

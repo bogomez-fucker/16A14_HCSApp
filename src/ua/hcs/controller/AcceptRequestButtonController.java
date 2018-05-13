@@ -63,7 +63,7 @@ public class AcceptRequestButtonController implements ActionListener {
                 true);
 
         // Показати фрейм формування бригади під запит
-        BrigadeCreation brigadeCreation = new BrigadeCreation(request);
+        BrigadeCreation brigadeCreation = new BrigadeCreation(request, frame);
 
         brigadeCreation.setVisible(true);
     }

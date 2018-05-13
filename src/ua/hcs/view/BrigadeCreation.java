@@ -21,8 +21,9 @@ public class BrigadeCreation extends JFrame {
     private JTextField workerNumberTextField;
     private JButton confirmButton;
     private Request request;
+    private JFrame parentFrame;
 
-    public BrigadeCreation(Request request) {
+    public BrigadeCreation(Request request, JFrame parentFrame) {
         headerLabel = new JLabel();
         workScaleLabel = new JLabel();
         workPrefTimeLabel = new JLabel();
@@ -33,6 +34,7 @@ public class BrigadeCreation extends JFrame {
         workerNumberTextField = new JTextField();
         confirmButton = new JButton();
         this.request = request;
+        this.parentFrame = parentFrame;
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Додаток ЖЕК ~ Формування бригади");
@@ -93,6 +95,6 @@ public class BrigadeCreation extends JFrame {
                         .addContainerGap()));
 
         pack();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(parentFrame);
     }
 }
