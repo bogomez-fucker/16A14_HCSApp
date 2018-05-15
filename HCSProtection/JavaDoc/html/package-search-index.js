@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"ua.hcs"},{"l":"ua.hcs.controller"},{"l":"ua.hcs.model"},{"l":"ua.hcs.model.comparator"},{"l":"ua.hcs.test"},{"l":"ua.hcs.util"},{"l":"ua.hcs.view"}]
