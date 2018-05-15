@@ -1,4 +1,4 @@
-**Information for proper searching
+# Information for proper searching
 
 14. Система Жилищно-коммунальные услуги. Квартиросъемщик отправ-
 ляет Заявку, в которой указывает род работ, масштаб и желаемое время
